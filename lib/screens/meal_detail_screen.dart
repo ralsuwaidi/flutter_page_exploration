@@ -11,8 +11,14 @@ class MealDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Title'),
       ),
-      body: Center(
-        child: Text('The meal - ${id}'),
+      body: Column(
+        children: [
+          Container(
+            height: 300,
+            width: double.infinity,
+            child: Container(),
+          ),
+        ],
       ),
     );
   }
