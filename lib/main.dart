@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/categories_screen.dart';
+import './screens/tabs_screen.dart';
+import './screens/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      home: TabsScreen(),
     );
   }
 }
@@ -35,9 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('DeliMeals'),
-      ),
       body: Center(
         child: Text('Navigation Time!'),
       ),

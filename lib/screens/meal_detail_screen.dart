@@ -52,7 +52,10 @@ class MealDetailScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(selectedMeal.ingredients[index]),
+                    child: Text(
+                      selectedMeal.ingredients[index],
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
