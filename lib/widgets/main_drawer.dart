@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+
 import '../screens/filters_screen.dart';
-import '../screens/tabs_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  final Function setFilter;
-  final Map<String, bool> currentFilters;
-
-  MainDrawer({this.currentFilters, this.setFilter = null});
-
-  Widget buildListTile(String title, Widget icon, Function tapHandler) {
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
-      leading: icon,
+      leading: Icon(
+        icon,
+        size: 26,
+      ),
       title: Text(
         title,
         style: TextStyle(
+          fontFamily: 'RobotoCondensed',
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
@@ -26,14 +25,14 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
-        children: [
+        children: <Widget>[
           Container(
-            height: 140,
+            height: 120,
             width: double.infinity,
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.only(top: 50),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
               child: Text(
                 'Cooking Up!',
                 style: TextStyle(
@@ -46,34 +45,12 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          buildListTile(
-            'Meals',
-            Icon(Icons.restaurant),
-            () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return TabsScreen();
-                  },
-                ),
-              );
-            },
-          ),
-          buildListTile(
-            'Filter',
-            Icon(Icons.settings),
-            () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return FiltersScreen(
-                      setFilter: setFilter,
-                    );
-                  },
-                ),
-              );
-            },
-          ),
+          buildListTile('Meals', Icons.restaurant, () {
+            Navigator.of(context).pushReplacementNamed('/');
+          }),
+          buildListTile('Filters', Icons.settings, () {
+            Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+          }),
         ],
       ),
     );
